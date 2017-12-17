@@ -1,0 +1,15 @@
+{
+	"worldBounds" : [0, 0, 480, 3700],
+	"startPlayer" : [240, 50],
+	"soundBoxes": [
+		{"soundArea" : ["area1", 90, 500, 180, 500], "endArea": ["source1", 90, 740, 180, 20]},
+		{"soundArea" : ["area2", 390, 500, 180, 500], "endArea": ["source2", 390, 740, 180, 20]},
+		{"soundArea" : ["area3", 240, 1000, 340, 500], "endArea": ["source3", 240, 1240, 340, 20]},
+		{"soundArea" : ["area4", 90, 1500, 180, 500], "endArea": ["source4", 90, 1740, 180, 20]},
+		{"soundArea" : ["area5", 390, 1500, 180, 500], "endArea": ["source5", 390, 1740, 180, 20]},
+		{"soundArea" : ["area6", 240, 2000, 340, 500], "endArea": ["source6", 240, 2240, 340, 20]},
+		{"soundArea" : ["area7", 90, 2500, 180, 500], "endArea": ["source7", 90, 2740, 180, 20]},
+		{"soundArea" : ["area8", 390, 2500, 180, 500], "endArea": ["source8", 390, 2740, 180, 20]}
+	],
+	"endBox" : [0, 2800, 480, 20]
+}

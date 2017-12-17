@@ -9,7 +9,12 @@
     "browser": true
   },
   "rules": {
-    "import/no-unresolved": [2]
+    "import/no-unresolved": [2],
+    "semi": ["error", "always"],
+    "space-before-function-paren": ["error", {"anonymous": "always", "named": "never", "asyncArrow": "always"}],
+    "padded-blocks": ["error", { "classes": "always" }],
+    "indent": ["error", 4],
+    "one-var": [0]
   },
   "globals": {
     "phaser": true

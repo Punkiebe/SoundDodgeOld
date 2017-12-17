@@ -1,0 +1,22 @@
+{
+	"worldBounds" : [0, 0, 480, 3700],
+	"startPlayer" : [240, 50],
+	"soundBoxes": [
+		{"soundArea" : ["area1", 40, 500, 80, 500], "endArea": ["source1", 40, 740, 80, 20]},
+		{"soundArea" : ["area2", 200, 500, 80, 500], "endArea": ["source2", 200, 740, 80, 20]},
+		{"soundArea" : ["area3", 360, 500, 80, 500], "endArea": ["source3", 360, 740, 80, 20]},
+		{"soundArea" : ["area4", 120, 1000, 80, 500], "endArea": ["source4", 120, 1240, 80, 20]},
+		{"soundArea" : ["area5", 280, 1000, 80, 500], "endArea": ["source5", 280, 1240, 80, 20]},
+		{"soundArea" : ["area6", 440, 1000, 80, 500], "endArea": ["source6", 440, 1240, 80, 20]},
+		{"soundArea" : ["area7", 40, 1500, 80, 500], "endArea": ["source7", 40, 1740, 80, 20]},
+		{"soundArea" : ["area8", 200, 1500, 80, 500], "endArea": ["source8", 200, 1740, 80, 20]},
+		{"soundArea" : ["area9", 360, 1500, 80, 500], "endArea": ["source9", 360, 1740, 80, 20]},
+		{"soundArea" : ["area10", 120, 2000, 80, 500], "endArea": ["source10", 120, 2240, 80, 20]},
+		{"soundArea" : ["area11", 280, 2000, 80, 500], "endArea": ["source11", 280, 2240, 80, 20]},
+		{"soundArea" : ["area12", 440, 2000, 80, 500], "endArea": ["source12", 440, 2240, 80, 20]},
+		{"soundArea" : ["area13", 40, 2500, 80, 500], "endArea": ["source13", 40, 2740, 80, 20]},
+		{"soundArea" : ["area14", 200, 2500, 80, 500], "endArea": ["source14", 200, 2740, 80, 20]},
+		{"soundArea" : ["area15", 360, 2500, 80, 500], "endArea": ["source15", 360, 2740, 80, 20]}
+	],
+	"endBox" : [0, 2800, 480, 20]
+}

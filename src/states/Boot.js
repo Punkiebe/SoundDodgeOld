@@ -1,26 +1,33 @@
-import Phaser from 'phaser'
+import Phaser from 'phaser';
 
 export default class extends Phaser.State {
-  init () {
-    this.stage.backgroundColor = '#FFF'
-    this.fontsReady = true
-    this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL
-  }
 
-  preload () {
-    let text = this.add.text(
-      this.world.centerX,
-      this.world.centerY,
-      'loading...',
-      { font: '16px Arial', fill: '#000', align: 'center' }
-    )
-    text.anchor.setTo(0.5, 0.5)
+    preload() {
+        this.load.image('loadingBar', 'assets/img/menu/loadingBar.png');
+        this.load.image('loadingText', 'assets/img/menu/text_loading.png');
+    }
 
-    this.load.image('loaderBg', 'assets/images/loader-bg.png')
-    this.load.image('loaderBar', 'assets/images/loader-bar.png')
-  }
+    create() {
+        this.stage.backgroundColor = '#000000';
+        this.physics.startSystem(Phaser.Physics.ARCADE);
 
-  create () {
-    this.state.start('Preload')
-  }
+        if (!this.device.desktop) {
+            this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        }
+
+        document.body.style.backgroundColor = '#000000';
+
+        this.scale.minWidth = 250;
+        this.scale.minHeight = 170;
+        this.scale.maxWidth = 960;
+        this.scale.maxHeight = 1600;
+
+        this.scale.pageAlignHorizontally = true;
+        this.scale.pageAlignVertically = true;
+
+        this.scale.setScreenSize(true);
+
+        this.state.start('load');
+    }
+
 }
