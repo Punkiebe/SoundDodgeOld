@@ -79,7 +79,7 @@ class Game extends Phaser.Game {
         this.state.add('selectionDebugLevel', SelectionDebugLevelState);
         this.state.add('debugLevel', DebugLevelState);
 
-        this.state.start('boot');
+        // this.state.start('boot');
     }
 
 }

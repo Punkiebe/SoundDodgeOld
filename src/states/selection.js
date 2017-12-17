@@ -3,7 +3,10 @@ import { activateSwipeFunctionality, checkIfLevelCompleted } from '../common';
 
 export default class extends Phaser.State {
 
-    totalSelectionScreens = 3;
+    constructor() {
+        super();
+        this.totalSelectionScreens = 3;
+    }
 
     create() {
         this.stage.backgroundColor = '#000000';
