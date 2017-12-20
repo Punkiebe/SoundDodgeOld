@@ -35,7 +35,6 @@ export default class extends Phaser.State {
         this.game.global.howl.soundOne.stop();
         this.game.global.howl.soundOne.volume(1 * this.game.global.configuration.volume);
         this.backgroundMusic.stop();
-        // TODO Clear needed???
         this.state.clearCurrentState();
         this.state.start('selection');
     }
@@ -43,7 +42,6 @@ export default class extends Phaser.State {
     optionsSelection() {
         this.game.global.howl.soundOne.stop();
         this.backgroundMusic.stop();
-        // TODO Clear needed???
         this.state.clearCurrentState();
         this.state.start('options');
     }
@@ -51,9 +49,8 @@ export default class extends Phaser.State {
     quitSelection() {
         this.game.global.howl.soundOne.stop();
         this.backgroundMusic.stop();
-        // TODO Clear needed???
         this.state.clearCurrentState();
-        this.destroy();
+        this.game.destroy();
     }
 
 }
