@@ -5,7 +5,7 @@ export default class extends Phaser.State {
 
     init(lvlNbr, difficulty) {
         this.levelNumber = lvlNbr;
-        this.levelSpeed = this.global.difficulty[difficulty].speed;
+        this.levelSpeed = this.game.global.difficulty[difficulty].speed;
         this.levelDifficulty = difficulty;
         console.log('Launch level : ' + lvlNbr + ', difficulty : ' + difficulty + ', speed : ' + this.levelSpeed + '.');
     }
@@ -81,7 +81,7 @@ export default class extends Phaser.State {
     }
 
     returnToMenu() {
-        this.global.howl.soundOne.stop();
+        this.game.global.howl.soundOne.stop();
         this.state.start('selectionDebugLevel');
     }
 

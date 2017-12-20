@@ -25,11 +25,11 @@ export default class extends Phaser.State {
         var posX = startPosX;
         var posY = startPosY;
 
-        for (var i = 1; i <= this.global.totalNumberOfLevels; i++) {
+        for (var i = 1; i <= this.game.global.totalNumberOfLevels; i++) {
             console.log('button ' + i);
             this.createLevelButton(i, posX, posY);
             posX += spaceBetween;
-            if ((this.global.camera.width - spaceMarginSides - (spaceBetween / 2)) <= posX) {
+            if ((this.game.global.camera.width - spaceMarginSides - (spaceBetween / 2)) <= posX) {
                 posX = startPosX;
                 posY += spaceBetween;
             }
@@ -48,9 +48,9 @@ export default class extends Phaser.State {
     swipeSelectionScreen(direction) {
         if (this.checkSwipePossible(direction)) {
             if (direction === 'left') {
-                this.camera.view.x += this.global.camera.width;
+                this.camera.view.x += this.game.global.camera.width;
             } else if (direction === 'right') {
-                this.camera.view.x -= this.global.camera.width;
+                this.camera.view.x -= this.game.global.camera.width;
             }
         }
     }
@@ -58,7 +58,7 @@ export default class extends Phaser.State {
     checkSwipePossible(direction) {
         var cam = this.camera.view.x;
         if (direction === 'left') {
-            if (cam < (this.global.camera.width * (this.totalSelectionScreens - 1) - 1)) {
+            if (cam < (this.game.global.camera.width * (this.totalSelectionScreens - 1) - 1)) {
                 return true;
             }
             return false;

@@ -22,18 +22,18 @@ export default class extends Phaser.State {
         this.quitButton.anchor.setTo(0.5, 0.5);
 
         this.backgroundMusic = this.add.audio('backgroundMusic');
-        this.backgroundMusic.volume = 0.2 * this.global.configuration.volume;
+        this.backgroundMusic.volume = 0.2 * this.game.global.configuration.volume;
         this.backgroundMusic.play();
 
-        this.global.howl.soundOne.volume(0);
-        this.global.howl.soundOne.play();
+        this.game.global.howl.soundOne.volume(0);
+        this.game.global.howl.soundOne.play();
 
         saveConfiguration();
     }
 
     startSelection() {
-        this.global.howl.soundOne.stop();
-        this.global.howl.soundOne.volume(1 * this.global.configuration.volume);
+        this.game.global.howl.soundOne.stop();
+        this.game.global.howl.soundOne.volume(1 * this.game.global.configuration.volume);
         this.backgroundMusic.stop();
         // TODO Clear needed???
         this.state.clearCurrentState();
@@ -41,7 +41,7 @@ export default class extends Phaser.State {
     }
 
     optionsSelection() {
-        this.global.howl.soundOne.stop();
+        this.game.global.howl.soundOne.stop();
         this.backgroundMusic.stop();
         // TODO Clear needed???
         this.state.clearCurrentState();
@@ -49,7 +49,7 @@ export default class extends Phaser.State {
     }
 
     quitSelection() {
-        this.global.howl.soundOne.stop();
+        this.game.global.howl.soundOne.stop();
         this.backgroundMusic.stop();
         // TODO Clear needed???
         this.state.clearCurrentState();

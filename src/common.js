@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import jQuery from 'jquery';
-import game from './main.js';
+import { game } from './main.js';
 
 const SoundBoxSprite = function (name, posX, posY, scaleX, scaleY) {
     Phaser.Sprite.call(this, game, posX, posY, 'pixelArea');
@@ -156,7 +156,7 @@ export const checkIfLevelCompleted = function (lvlNbr, difficulty) {
 /*
 Saves the complete configuration object. (game.global)
 */
-export const saveConfiguration = function () {
+export const saveConfiguration = function () {  
     localStorage.setItem('nevies.sounddodge.configuration', JSON.stringify(game.global.configuration));
 };
 

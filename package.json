@@ -5,13 +5,14 @@
   "description": "Keep it quit and avoid the sound",
   "repository": {
     "type": "git",
-    "url": "https://github.com/udia-software/phaser-cordova-es6.git"
+    "url": "https://github.com/Punkiebe/SoundDodge.git"
   },
   "scripts": {
-    "setup": "node setup.js",
     "dev": "webpack",
     "deploy": "webpack --config webpack.production.config.js",
-    "test": "eslint ./src/**/**.js"
+    "test": "eslint ./src/**/**.js",
+    "web": "cordova run browser -- --live-reload",
+    "devall": "npm run dev | npm run web"
   },
   "author": "Dries Schelfhout <info@nevies.be>",
   "license": "Apache-2.0",

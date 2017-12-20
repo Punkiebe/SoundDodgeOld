@@ -5,7 +5,7 @@ export default class extends Phaser.State {
 
     init(lvlNbr, difficulty) {
         this.levelNumber = lvlNbr;
-        this.levelSpeed = this.global.difficulty[difficulty].speed;
+        this.levelSpeed = this.game.global.difficulty[difficulty].speed;
         this.levelDifficulty = difficulty;
         console.log('Launch level : ' + lvlNbr + ', difficulty : ' + difficulty + ', speed : ' + this.levelSpeed + '.');
     }
@@ -17,7 +17,7 @@ export default class extends Phaser.State {
         buildLevel('assets\\levels\\level' + this.levelNumber + '.json', this);
 
         var textStartLevel = 'Click Me!\nTo start.';
-        this.startLevelText = this.add.text(this.camera.view.centerX, 150, textStartLevel, this.styles.default);
+        this.startLevelText = this.add.text(this.camera.view.centerX, 150, textStartLevel, this.game.styles.default);
         this.startLevelText.anchor.setTo(0.5, 0.5);
 
         // particles player
@@ -50,7 +50,7 @@ export default class extends Phaser.State {
             var overlap = this.physics.arcade.overlap(this.player, this.areaBoxes, this.soundOverlap, null, this);
 
             if (!overlap) {
-                this.global.howl.soundOne.stop();
+                this.game.global.howl.soundOne.stop();
                 // console.log("No overlap");
                 this.soundId = null;
             }
@@ -99,18 +99,18 @@ export default class extends Phaser.State {
         // console.log("overlap sound id : " + this.soundId);
         if (!this.soundId) {
             console.log('start music');
-            this.soundId = this.global.howl.soundOne.play();
+            this.soundId = this.game.global.howl.soundOne.play();
             console.log('music started ' + this.soundId);
         } else {
-            if (!this.global.howl.soundOne.playing(this.soundId) && !this.paused) {
+            if (!this.game.global.howl.soundOne.playing(this.soundId) && !this.paused) {
                 console.log('start play ');
-                this.global.howl.soundOne.play(this.soundId);
+                this.game.global.howl.soundOne.play(this.soundId);
             }
         }
 
         if (!this.paused) {
-            this.updateSoundBalance(box.soundSource, icon, this.global.howl.soundOne);
-            this.updateSoundDistance(box.soundSource, icon, this.global.howl.soundOne, box);
+            this.updateSoundBalance(box.soundSource, icon, this.game.global.howl.soundOne);
+            this.updateSoundDistance(box.soundSource, icon, this.game.global.howl.soundOne, box);
         }
     }
 
@@ -120,10 +120,10 @@ export default class extends Phaser.State {
             // var text = "Lost!! Got hit by " + source.name;
             var text = 'Lost!!';
             console.info('source HIT log');
-            var t = this.add.text(this.camera.view.centerX, this.camera.view.centerY, text, this.styles.default);
+            var t = this.add.text(this.camera.view.centerX, this.camera.view.centerY, text, this.game.styles.default);
             t.anchor.setTo(0.5, 0.5);
             this.time.events.add(1000, this.returnToSelection, this);
-            this.global.howl.soundOne.stop();
+            this.game.global.howl.soundOne.stop();
             this.paused = true;
         }
     }
@@ -139,18 +139,18 @@ export default class extends Phaser.State {
 
             // Set in the global variables that this level was completed
             if (!checkIfLevelCompleted(this.levelNumber, this.levelDifficulty)) {
-                this.global.configuration.completedLevels[this.levelDifficulty].push(this.levelNumber);
+                this.game.global.configuration.completedLevels[this.levelDifficulty].push(this.levelNumber);
             }
         }
     }
 
     returnToSelection() {
-        this.global.howl.soundOne.stop();
+        this.game.global.howl.soundOne.stop();
         this.state.start('selection');
     }
 
     returnToMenu() {
-        this.global.howl.soundOne.stop();
+        this.game.global.howl.soundOne.stop();
         this.state.start('menu');
     }
 
@@ -165,7 +165,7 @@ export default class extends Phaser.State {
         var distance = this.physics.arcade.distanceBetween(source, target);
         var soundMaxDistance = Math.sqrt(Math.pow(soundBox.height, 2) + Math.pow(soundBox.width, 2));
         var vol = (soundMaxDistance - distance) / soundMaxDistance;
-        sound.volume(vol * this.global.configuration.volume, this.soundId);
+        sound.volume(vol * this.game.global.configuration.volume, this.soundId);
     }
 
 }

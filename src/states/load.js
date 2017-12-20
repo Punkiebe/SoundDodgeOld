@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import Howl from 'howler';
+import Howler from 'howler';
 import { manageSavedConfiguration } from '../common';
 
 export default class extends Phaser.State {
@@ -48,14 +48,14 @@ export default class extends Phaser.State {
 
         this.load.audio('backgroundMusic', ['assets/audio/menu/classical_piano_music_track_mary_.mp3']);
 
-        this.global.howl.soundOne = new Howl({
+        this.game.global.howl.soundOne = new Howler.Howl({
             src: ['assets/audio/game/static_noise_from_tv_with_no_signal.mp3']
         });
         // Code To fix the load of libs used for the pos method that takes sometime
-        this.global.howl.soundOne.volume(0);
-        this.global.howl.soundOne.play();
-        this.global.howl.soundOne.pos(1, 1, 1);
-        this.global.howl.soundOne.stop();
+        this.game.global.howl.soundOne.volume(0);
+        this.game.global.howl.soundOne.play();
+        this.game.global.howl.soundOne.pos(1, 1, 1);
+        this.game.global.howl.soundOne.stop();
 
         // Reload the configuration from the local storage
         manageSavedConfiguration();

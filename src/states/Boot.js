@@ -11,8 +11,6 @@ export default class extends Phaser.State {
         this.stage.backgroundColor = '#000000';
         this.physics.startSystem(Phaser.Physics.ARCADE);
 
-        debugger;
-
         if (!this.game.device.desktop) {
             this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         }
@@ -26,7 +24,6 @@ export default class extends Phaser.State {
 
         this.scale.pageAlignHorizontally = true;
         this.scale.pageAlignVertically = true;
-
         this.scale.refresh();
 
         this.state.start('load');
