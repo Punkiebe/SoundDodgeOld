@@ -18,7 +18,6 @@ class Game extends Phaser.Game {
 
     constructor() {
 
-        debugger;
         var width = config.gameWidth;
         var height = config.gameHeight;
 

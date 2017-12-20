@@ -34,6 +34,7 @@ export default class extends Phaser.State {
         this.createCurrentSelectionRow('HARD');
         this.createBackButton('HARD');
 
+        debugger;
         // Swipe
         activateSwipeFunctionality(this.swipeSelectionScreen, this.swipeSelectionScreen, null, null, this);
 
@@ -121,10 +122,11 @@ export default class extends Phaser.State {
 
     swipeSelectionScreen(direction, distance, newThis) {
         if (newThis.checkSwipePossible(direction)) {
+            debugger;
             if (direction === 'left') {
-                this.camera.view.x += this.game.global.camera.width;
+                newThis.camera.view.x += newThis.game.global.camera.width;
             } else if (direction === 'right') {
-                this.camera.view.x -= this.game.global.camera.width;
+                newThis.camera.view.x -= newThis.game.global.camera.width;
             }
         }
         // Set last selected selection
