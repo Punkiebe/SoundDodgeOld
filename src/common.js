@@ -103,38 +103,38 @@ Give the functions that you want that are called as parameters.
 First for left swipe, then right, up and down.
 These function we'll be given two parameters first direction and then distance.
 */
-export const activateSwipeFunctionality = function (fnSwipeLeft, fnSwipeRight, fnSwipeUp, fnSwipeDown, newThis) {
+export const activateSwipeFunctionality = function (fnSwipeLeft, fnSwipeRight, fnSwipeUp, fnSwipeDown) {
 
     // Logic for the swipe
     var swipeCoordX, swipeCoordY, swipeCoordX2, swipeCoordY2, swipeMinDistance = 100;
 
-    game.input.onDown.add(function (pointer) {
+    this.game.input.onDown.add(function (pointer) {
         swipeCoordX = pointer.clientX;
         swipeCoordY = pointer.clientY;
     }, this);
 
-    game.input.onUp.add(function (pointer) {
+    this.game.input.onUp.add(function (pointer) {
         swipeCoordX2 = pointer.clientX;
         swipeCoordY2 = pointer.clientY;
         if (swipeCoordX2 < swipeCoordX - swipeMinDistance) {
             console.log('left');
             if (fnSwipeLeft) {
-                fnSwipeLeft('left', (swipeCoordX - swipeCoordX2), newThis);
+                fnSwipeLeft.bind(this)('left', (swipeCoordX - swipeCoordX2));
             }
         } else if (swipeCoordX2 > swipeCoordX + swipeMinDistance) {
             console.log('right');
             if (fnSwipeRight) {
-                fnSwipeRight('right', (swipeCoordX2 - swipeCoordX), newThis);
+                fnSwipeRight.bind(this)('right', (swipeCoordX2 - swipeCoordX));
             }
         } else if (swipeCoordY2 < swipeCoordY - swipeMinDistance) {
             console.log('up');
             if (fnSwipeUp) {
-                fnSwipeUp('up', (swipeCoordY - swipeCoordY2), newThis);
+                fnSwipeUp.bind(this)('up', (swipeCoordY - swipeCoordY2));
             }
         } else if (swipeCoordY2 > swipeCoordY + swipeMinDistance) {
             console.log('down');
             if (fnSwipeDown) {
-                fnSwipeDown('down', (swipeCoordY2 - swipeCoordY), newThis);
+                fnSwipeDown.bind(this)('down', (swipeCoordY2 - swipeCoordY));
             }
         }
     }, this);
@@ -156,7 +156,7 @@ export const checkIfLevelCompleted = function (lvlNbr, difficulty) {
 /*
 Saves the complete configuration object. (game.global)
 */
-export const saveConfiguration = function () {  
+export const saveConfiguration = function () {
     localStorage.setItem('nevies.sounddodge.configuration', JSON.stringify(game.global.configuration));
 };
 

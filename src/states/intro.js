@@ -2,17 +2,18 @@ import Phaser from 'phaser';
 
 export default class extends Phaser.State {
 
-    tweenTime = 2000;
-
+    
     create() {
+        const tweenTime = 500;
+
         var nevies = this.add.sprite(this.world.centerX, this.world.centerY, 'neviesTitle');
         nevies.anchor.setTo(0.5, 0.5);
         nevies.alpha = 0;
         var tween = this.add.tween(nevies);
         tween.to({
             alpha: 1
-        }, this.tweenTime, Phaser.Easing.Linear.None);
-        tween.to({ alpha: 0 }, this.tweenTime, Phaser.Easing.Exponential.Out);
+        }, tweenTime, Phaser.Easing.Linear.None);
+        tween.to({ alpha: 0 }, tweenTime, Phaser.Easing.Exponential.Out);
 
         var sounddodgeTitle = this.add.sprite(this.world.centerX, this.world.centerY, 'sounddodgeTitle');
         sounddodgeTitle.anchor.setTo(0.5, 0.5);
@@ -20,9 +21,9 @@ export default class extends Phaser.State {
         var tween2 = this.add.tween(sounddodgeTitle);
         tween2.to({
             alpha: 1
-        }, this.tweenTime, Phaser.Easing.Linear.None);
+        }, tweenTime, Phaser.Easing.Linear.None);
         tween2.onComplete.addOnce(this.goToMenu, this);
-        tween2.to({ alpha: 0 }, this.tweenTime, Phaser.Easing.Exponential.Out);
+        tween2.to({ alpha: 0 }, tweenTime, Phaser.Easing.Exponential.Out);
 
         tween.chain(tween2);
 

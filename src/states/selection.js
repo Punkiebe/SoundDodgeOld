@@ -34,9 +34,8 @@ export default class extends Phaser.State {
         this.createCurrentSelectionRow('HARD');
         this.createBackButton('HARD');
 
-        debugger;
         // Swipe
-        activateSwipeFunctionality(this.swipeSelectionScreen, this.swipeSelectionScreen, null, null, this);
+        activateSwipeFunctionality.bind(this)(this.swipeSelectionScreen, this.swipeSelectionScreen, null, null);
 
         // Go to the last selected difficulty
         if (!this.game.global.lastSelectedDifficulty) {
@@ -92,7 +91,7 @@ export default class extends Phaser.State {
         }
 
         // add this. to the lvlButton at the end!
-        var lvlButton = this.add.button((this.game.global.camera.width * this.game.global.difficulty[difficulty].page) + x, y, bmd, this.startLevel, this.lvlButton);
+        var lvlButton = this.add.button((this.game.global.camera.width * this.game.global.difficulty[difficulty].page) + x, y, bmd, this.startLevel, this);
         lvlButton.input.useHandCursor = true;
         lvlButton.anchor.setTo(0.5, 0.5);
         lvlButton.levelNumber = lvlNbr;
@@ -120,17 +119,16 @@ export default class extends Phaser.State {
         backButton.scale.setTo(0.4, 0.4);
     }
 
-    swipeSelectionScreen(direction, distance, newThis) {
-        if (newThis.checkSwipePossible(direction)) {
-            debugger;
+    swipeSelectionScreen(direction, distance) {
+        if (this.checkSwipePossible(direction)) {
             if (direction === 'left') {
-                newThis.camera.view.x += newThis.game.global.camera.width;
+                this.game.camera.view.x += this.game.global.camera.width;
             } else if (direction === 'right') {
-                newThis.camera.view.x -= newThis.game.global.camera.width;
+                this.game.camera.view.x -= this.game.global.camera.width;
             }
         }
         // Set last selected selection
-        this.game.global.lastSelectedDifficulty = newThis.difficultyBasedOnCamera();
+        this.game.global.lastSelectedDifficulty = this.difficultyBasedOnCamera();
     }
 
     checkSwipePossible(direction) {

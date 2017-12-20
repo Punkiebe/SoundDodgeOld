@@ -31,7 +31,7 @@ export default class extends Phaser.State {
         var textDebugLevel = 'Debug level';
         var debugLevelText = this.add.text(50, 350, textDebugLevel, this.game.styles.default);
         debugLevelText.inputEnabled = true;
-        debugLevelText.events.onInputUp.add(this.startDebugLevel, debugLevelText);
+        debugLevelText.events.onInputUp.add(this.startDebugLevel, this);
 
         // Back button
         var backButton = this.add.button(this.game.global.camera.width - 100, this.game.global.camera.height - 120, 'backButton', this.returnToMenu, this);

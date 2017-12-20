@@ -21,7 +21,7 @@ export default class extends Phaser.State {
         backButton.scale.setTo(0.4, 0.4);
 
         // Swipe
-        activateSwipeFunctionality(this.swipeLevel, this.swipeLevel, this.swipeLevel, this.swipeLevel, this);
+        activateSwipeFunctionality.bind(this)(this.swipeLevel, this.swipeLevel, this.swipeLevel, this.swipeLevel);
 
         this.paused = false;
     }
@@ -53,8 +53,8 @@ export default class extends Phaser.State {
         console.log('mouse up on player');
     }
 
-    swipeLevel(direction, distance, newThis) {
-        if (newThis.checkSwipePossible(direction)) {
+    swipeLevel(direction, distance) {
+        if (this.checkSwipePossible(direction)) {
             if (direction === 'down') {
                 this.camera.view.y -= distance;
             } else if (direction === 'up') {

@@ -13,7 +13,7 @@ export default class extends Phaser.State {
         backButton.input.useHandCursor = true;
         backButton.scale.setTo(0.4, 0.4);
 
-        activateSwipeFunctionality(null, null, this.swipeTest, this.swipeTest);
+        activateSwipeFunctionality.bind(this)(null, null, this.swipeTest, this.swipeTest);
     }
 
     createLevelButtons() {
@@ -38,7 +38,7 @@ export default class extends Phaser.State {
 
     createLevelButton(lvlNbr, x, y) {
         // Add this to lvlButton
-        var lvlButton = this.add.button(x, y, 'number' + lvlNbr, this.startLevel, this.lvlButton);
+        var lvlButton = this.add.button(x, y, 'number' + lvlNbr, this.startLevel, this);
         lvlButton.input.useHandCursor = true;
         lvlButton.anchor.setTo(0.5, 0.5);
         lvlButton.levelNumber = lvlNbr;
@@ -71,13 +71,11 @@ export default class extends Phaser.State {
     }
 
     startLevel() {
-        // TODO Clear needed???
         this.state.clearCurrentState();
         this.state.start('debugLevel', true, false, this.levelNumber, this.difficulty);
     }
 
     returnToOptions() {
-        // TODO Clear needed???
         this.state.clearCurrentState();
         this.state.start('options');
     }
