@@ -132,7 +132,7 @@ export default class extends Phaser.State {
         if (!this.paused) {
             this.playerEmitter.destroy();
             var text = 'Won!!';
-            var t = this.add.text(this.camera.view.centerX, this.camera.view.centerY, text, this.styles.winCondition);
+            var t = this.add.text(this.camera.view.centerX, this.camera.view.centerY, text, this.game.styles.winCondition);
             t.anchor.setTo(0.5, 0.5);
             this.time.events.add(1000, this.returnToSelection, this);
             this.paused = true;

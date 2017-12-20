@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { activateSwipeFunctionality } from '../common';
+import { game } from '../main';
 
 export default class extends Phaser.State {
 
@@ -38,7 +39,7 @@ export default class extends Phaser.State {
 
     createLevelButton(lvlNbr, x, y) {
         // Add this to lvlButton
-        var lvlButton = this.add.button(x, y, 'number' + lvlNbr, this.startLevel, this);
+        var lvlButton = this.add.button(x, y, 'number' + lvlNbr, this.startLevel, this.lvlButton);
         lvlButton.input.useHandCursor = true;
         lvlButton.anchor.setTo(0.5, 0.5);
         lvlButton.levelNumber = lvlNbr;
@@ -71,8 +72,8 @@ export default class extends Phaser.State {
     }
 
     startLevel() {
-        this.state.clearCurrentState();
-        this.state.start('debugLevel', true, false, this.levelNumber, this.difficulty);
+        this.game.state.clearCurrentState();
+        game.state.start('debugLevel', true, false, this.levelNumber, this.difficulty);
     }
 
     returnToOptions() {
