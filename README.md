@@ -65,8 +65,6 @@ Afterwards, you can use Cordova to build and run the browser and native ios/andr
 ```bash
 cordova run android
 # Run application on Android/Emulator
-cordova run ios
-# Run application on iOS/Emulator
 cordova run browser
 # Same as development browser run command, without live reload
 ```
