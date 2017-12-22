@@ -1,31 +1,28 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="be.nevies.sounddodge" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Sound Dodge</name>
+    <name>
+		Sound Dodge
+	</name>
     <description>
-        Keep it quit and avoid the sound
-    </description>
+		Keep it quit and avoid the sound
+	</description>
     <author email="info@nevies.be" href="">
-        Dries Schelfhout
-    </author>
+		Dries Schelfhout
+	</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
-    <allow-intent href="tel:*" />
-    <allow-intent href="sms:*" />
-    <allow-intent href="mailto:*" />
-    <allow-intent href="geo:*" />
+    <preference name="Fullscreen" value="true" />
+    <preference name="Orientation" value="portrait" />
+    <preference name="LoadingDialog" value="Loading SoundDodge" />
     <platform name="android">
         <allow-intent href="market:*" />
+        <preference name="android-targetSdkVersion" value="24" />
+        <preference name="android-minSdkVersion" value="21" />
     </platform>
-    <platform name="ios">
-        <allow-intent href="itms:*" />
-        <allow-intent href="itms-apps:*" />
-    </platform>
-    <preference name="Fullscreen" value="true" />
-    <preference name="orientation" value="landscape" />
+    <engine name="android" spec="^6.3.0" />
     <engine name="browser" spec="^5.0.0" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
     <plugin name="cordova-plugin-browsersync" spec="^1.1.0" />
-    <engine name="android" spec="~6.3.0" />
 </widget>
