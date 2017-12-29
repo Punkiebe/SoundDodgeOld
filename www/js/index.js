@@ -17,6 +17,8 @@ var app = {
     onDeviceReady: function () {
         this.receivedEvent('deviceready');
 
+        window.plugins.playGamesServices.auth();
+
         // When the device is ready, start Phaser Boot state.
         window.game.state.start('boot');
     },

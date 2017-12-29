@@ -8,6 +8,11 @@ export default class extends Phaser.State {
     }
 
     create() {
+        // See how's logged in
+        window.plugins.playGamesServices.showPlayer(function (playerData) {
+            console.log('Authenticated as ' + playerData['displayName']);
+        });
+
         this.stage.backgroundColor = '#000000';
         this.physics.startSystem(Phaser.Physics.ARCADE);
 

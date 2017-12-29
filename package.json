@@ -12,7 +12,8 @@
     "deploy": "webpack --config webpack.production.config.js",
     "test": "eslint ./src/**/**.js",
     "web": "cordova run browser -- --live-reload",
-    "devall": "npm run dev | npm run web"
+    "build_android_debug": "cordova build android --debug --buildConfig",
+    "build_android_prod": "cordova build android --release --buildConfig"
   },
   "author": "Dries Schelfhout <info@nevies.be>",
   "license": "Apache-2.0",
@@ -37,6 +38,7 @@
     "cordova-android": "^6.3.0",
     "cordova-browser": "^5.0.0",
     "cordova-plugin-browsersync": "^1.1.0",
+    "cordova-plugin-play-games-services": "^1.1.0",
     "cordova-plugin-whitelist": "^1.3.3",
     "howler": "^2.0.6",
     "jquery": "^3.2.1",
@@ -46,7 +48,10 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},
-      "cordova-plugin-browsersync": {}
+      "cordova-plugin-browsersync": {},
+      "cordova-plugin-play-games-services": {
+        "APP_ID": "996699697832"
+      }
     },
     "platforms": [
       "android",

@@ -1,0 +1,18 @@
+{
+    "android": {
+        "debug": {
+            "keystore": "C:/Users/Dries/.keystore/sounddodge.jks",
+            "storePassword": "neviesdodge",
+            "alias": "be.nevies.sounddodge",
+            "password" : "neviessound",
+            "keystoreType": ""
+        },
+        "release": {
+            "keystore": "C:/Users/Dries/.keystore/sounddodge.jks",
+            "storePassword": "neviesdodge",
+            "alias": "be.nevies.sounddodge",
+            "password" : "neviessound",
+            "keystoreType": ""
+        }
+    }
+}
