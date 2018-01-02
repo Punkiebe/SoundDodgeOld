@@ -38,7 +38,8 @@ module.exports = {
         }),
         new CopyWebpackPlugin([
             {
-                from: path.resolve(__dirname, 'src/assets/**/*'),
+                context: path.resolve(__dirname, 'src', 'assets'),
+                from: '**/*',
                 to: path.resolve(__dirname, 'www', 'assets')
             }
         ])

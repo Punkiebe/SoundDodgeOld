@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 
 export default class extends Phaser.State {
 
-    
+
     create() {
         const tweenTime = 500;
 

@@ -13,7 +13,8 @@
     "test": "eslint ./src/**/**.js",
     "web": "cordova run browser -- --live-reload",
     "build_android_debug": "cordova build android --debug --buildConfig",
-    "build_android_prod": "cordova build android --release --buildConfig"
+    "build_android_prod": "cordova build android --release --buildConfig",
+    "build_web_prod": "cordova build browser --release"
   },
   "author": "Dries Schelfhout <info@nevies.be>",
   "license": "Apache-2.0",
