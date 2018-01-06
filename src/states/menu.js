@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { saveConfiguration } from '../common';
+import { login } from '../login';
 
 export default class extends Phaser.State {
 
@@ -27,6 +28,8 @@ export default class extends Phaser.State {
 
         this.game.global.howl.soundOne.volume(0);
         this.game.global.howl.soundOne.play();
+
+        console.log('>> Menu login : ' + JSON.stringify(login));
 
         saveConfiguration();
     }

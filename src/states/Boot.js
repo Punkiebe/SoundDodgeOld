@@ -1,4 +1,6 @@
 import Phaser from 'phaser';
+import gapi from 'gapi';
+import { initClient } from '../login';
 
 export default class extends Phaser.State {
 
@@ -17,6 +19,7 @@ export default class extends Phaser.State {
         this.physics.startSystem(Phaser.Physics.ARCADE);
 
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            // Mobile
             this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         }
 
@@ -30,6 +33,15 @@ export default class extends Phaser.State {
         this.scale.pageAlignHorizontally = true;
         this.scale.pageAlignVertically = true;
         this.scale.refresh();
+
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            // Mobile
+            window.plugins.playGamesServices.auth();
+        } else {
+            // Web
+            console.log('>> Start login init');
+            gapi.load('client:auth2:games', initClient);
+        }
 
         this.state.start('load');
     }

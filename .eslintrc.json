@@ -17,9 +17,11 @@
     "one-var": [0]
   },
   "globals": {
-    "phaser": true
+    "phaser": true,
+    "gapi": true
   },
   "settings": {
-    "import/core-modules": [ "phaser", "pixi", "p2" ]
+    "import/core-modules": [ "phaser", "pixi", "p2" ],
+    "import/resolver": ["webpack"]
   }
 }
