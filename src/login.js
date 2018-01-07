@@ -6,7 +6,7 @@ export const login = {};
 export const initClient = function () {
 
     gapi.client.init({
-        apiKey: GoogleConfig.web.project_id,
+        apiKey: 'AIzaSyDHEUcIP4qjCqknXPRa_uqpeAXQvbytzVY',
         discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/games/v1/rest'],
         clientId: GoogleConfig.web.client_id,
         scope: ['games']
@@ -18,4 +18,15 @@ export const initClient = function () {
         console.log('> login ' + gapi.auth2.getAuthInstance().isSignedIn.get());
         login.signedIn = gapi.auth2.getAuthInstance().isSignedIn.get();
     });
+};
+
+window.handleClientLoad = function () {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        // Mobile
+        // window.plugins.playGamesServices.auth();
+    } else {
+        // Web
+        console.log('>> Start login init handleClientLoad');
+        gapi.load('client:auth2', initClient);
+    }
 };

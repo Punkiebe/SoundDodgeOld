@@ -39,8 +39,8 @@ export default class extends Phaser.State {
             window.plugins.playGamesServices.auth();
         } else {
             // Web
-            console.log('>> Start login init');
-            gapi.load('client:auth2:games', initClient);
+            console.log('>> Start login init (boot.js)');
+            gapi.load('client:auth2', initClient);
         }
 
         this.state.start('load');
