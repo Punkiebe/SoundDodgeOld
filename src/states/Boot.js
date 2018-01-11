@@ -10,11 +10,6 @@ export default class extends Phaser.State {
     }
 
     create() {
-        // See how's logged in
-        window.plugins.playGamesServices.showPlayer(function (playerData) {
-            console.log('Authenticated as ' + playerData['displayName']);
-        });
-
         this.stage.backgroundColor = '#000000';
         this.physics.startSystem(Phaser.Physics.ARCADE);
 
@@ -34,14 +29,17 @@ export default class extends Phaser.State {
         this.scale.pageAlignVertically = true;
         this.scale.refresh();
 
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-            // Mobile
-            window.plugins.playGamesServices.auth();
-        } else {
-            // Web
-            console.log('>> Start login init (boot.js)');
-            gapi.load('client:auth2', initClient);
-        }
+        debugger;
+
+        window.plugins.playGamesServices.auth();
+        // if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        //     // Mobile
+        // } else {
+        //     // Web
+        //     console.log('>> Start login init (boot.js)');
+        //     debugger;
+        //     gapi.load('client:auth2', initClient);
+        // }
 
         this.state.start('load');
     }

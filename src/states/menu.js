@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { saveConfiguration } from '../common';
 import { login } from '../login';
+import gapi from 'gapi';
 
 export default class extends Phaser.State {
 
@@ -29,7 +30,15 @@ export default class extends Phaser.State {
         this.game.global.howl.soundOne.volume(0);
         this.game.global.howl.soundOne.play();
 
+        debugger;
+        console.log(gapi.testje);
+
         console.log('>> Menu login : ' + JSON.stringify(login));
+
+        // See how's logged in
+        window.plugins.playGamesServices.showPlayer(function (playerData) {
+            console.log('Authenticated as ' + playerData['displayName']);
+        });
 
         saveConfiguration();
     }
