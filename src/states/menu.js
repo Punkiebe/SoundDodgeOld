@@ -35,9 +35,19 @@ export default class extends Phaser.State {
         console.log('>> Menu login : ' + JSON.stringify(login));
 
         // See how's logged in
-        // window.plugins.playGamesServices.showPlayer(function (playerData) {
-        //     console.log('Authenticated as ' + playerData['displayName']);
-        // });
+
+        window.plugins.playGamesServices.isSignedIn(function (result) {
+            // ‘result’ is a JSON object with a single boolean property of ‘isSignedIn’
+            // {
+            // 		"isSignedIn" : true
+            // }
+
+            console.log('Do something with result.isSignedIn' + JSON.stringify(result));
+        });
+
+        window.plugins.playGamesServices.showPlayer(function (playerData) {
+            console.log('Authenticated as ' + playerData['displayName']);
+        });
 
         saveConfiguration();
     }
