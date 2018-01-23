@@ -17,8 +17,7 @@
     "one-var": [0]
   },
   "globals": {
-    "phaser": true,
-    "gapi": true
+    "phaser": true
   },
   "settings": {
     "import/core-modules": [ "phaser", "pixi", "p2" ],

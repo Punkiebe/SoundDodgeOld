@@ -62,8 +62,8 @@ module.exports = {
             pixi: pixi,
             p2: p2
         }
-    },
-    externals: {
-        gapi: 'gapi'
     }
+    // externals: {
+    //     gapi: 'gapi'
+    // }
 };

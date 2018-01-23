@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "996699697832",
+    "project_id": "sounddodge-67575909"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:996699697832:android:5ea5a46adcfc0ccc",
+        "android_client_info": {
+          "package_name": "be.nevies.sounddodge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "996699697832-83q60g3a1li9nlpmmp682q5ourh0rr39.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "996699697832-amhakrljbgif3kqumr0fiphb3qjer53a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "be.nevies.sounddodge",
+            "certificate_hash": "c8f7b2860eb5d6395818d6e5f109f5e74b95cb2d"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsqRCJK7Srqy97WBYA-MrXXwDKO63vT60"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
