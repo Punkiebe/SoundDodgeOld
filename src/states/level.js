@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { buildLevel, checkIfLevelCompleted } from '../common';
+import Constants from '../constants';
 
 export default class extends Phaser.State {
 
@@ -125,6 +126,15 @@ export default class extends Phaser.State {
             this.time.events.add(1000, this.returnToSelection, this);
             this.game.global.howl.soundOne.stop();
             this.paused = true;
+
+            window.plugins.playGamesServices.incrementAchievement({
+                achievementId: Constants.ACH_KEEP_TRYING,
+                numSteps: 1
+            });
+            window.plugins.playGamesServices.incrementAchievement({
+                achievementId: Constants.ACH_DONT_GIVE_UP_HOPE,
+                numSteps: 1
+            });
         }
     }
 
@@ -141,6 +151,16 @@ export default class extends Phaser.State {
             if (!checkIfLevelCompleted(this.levelNumber, this.levelDifficulty)) {
                 this.game.global.configuration.completedLevels[this.levelDifficulty].push(this.levelNumber);
             }
+
+
+            window.plugins.playGamesServices.incrementAchievement({
+                achievementId: Constants.ACH_NICE_WORK,
+                numSteps: 1
+            });
+            window.plugins.playGamesServices.incrementAchievement({
+                achievementId: Constants.ACH_YOURE_THE_BEST,
+                numSteps: 1
+            });
         }
     }
 
