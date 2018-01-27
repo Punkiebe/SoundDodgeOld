@@ -33,6 +33,12 @@ export default class extends Phaser.State {
         debugLevelText.inputEnabled = true;
         debugLevelText.events.onInputUp.add(this.startDebugLevel, this);
 
+        // Debug lebel button
+        var textReset = 'Reset';
+        var resetText = this.add.text(50, 420, textReset, this.game.styles.default);
+        resetText.inputEnabled = true;
+        resetText.events.onInputUp.add(this.resetGameProgress, this);
+
         // Back button
         var backButton = this.add.button(this.game.global.camera.width - 100, this.game.global.camera.height - 120, 'backButton', this.returnToMenu, this);
         backButton.input.useHandCursor = true;
@@ -43,6 +49,11 @@ export default class extends Phaser.State {
         var newVolume = roundNumber(this.calculateVolume(), 2);
         this.volumeNumberText.setText(Math.round(newVolume * 100));
         this.game.global.configuration.volume = newVolume;
+    }
+
+    resetGameProgress() {
+        console.log('Reset your game progress');
+        this.game.global.configuration.completedLevels = { EASY: [], NORMAL: [], HARD: [] };
     }
 
     debugToggle(debugText) {
